@@ -1,0 +1,60 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="static/css/styles.css">
+<style>
+
+</style>
+{% endblock %}
+
+{% block title %}Color Palette{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-4 subtitle">Color Palette</h1>
+        <p class="subtitle">Extract the most common colors from any Image</p>
+      <hr class="my-4">
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+	  <table class="table">
+          <tr>
+              <td style="border: 0;">
+                  <form action="{{url_for('palette') }}" method="post" enctype="multipart/form-data">
+                      <div style="padding: 30px 0px 15px 0px;">
+                            <label for="img" class="task-label">Your Image</label>
+                            <br>
+                            <input type="file" id="img" aria-describedby="nameHelp"
+                            name="img-path" required="required" accept="image/png, image/jpeg">
+                      </div>
+
+                      <div style="padding: 15px 0px 15px 0px;">
+                            <label for="colors" class="">N° of colors</label>
+                            <select id="colors" name="number-colors" class="form-control options" required="required">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                            </select>
+                      </div>
+                      <button type="submit" class="click" style="margin-top: 10px;" name="">Go!</button>
+                  </form>
+              </td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
